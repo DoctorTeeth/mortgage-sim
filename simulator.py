@@ -49,7 +49,6 @@ def runSimulation(N,p,d):
     # for each day in the simulation period 
     for i in range(1,N + 1):
 
-        #print "processing day: ", i
         for loan in loans:
 
             # if the loan is still in the pool         
@@ -57,11 +56,9 @@ def runSimulation(N,p,d):
 
                 # allow for state change
                 loan.state = chooseState(p,d)  
-                #print "\twas normal, now: ", loan.state
 
                 if loan.state == "default":
                     recovery = recoveryRate * loan.balance
-                    #print "recovery: ", recovery
                     cash = cash + recovery
                 elif loan.state == "prepay":
                     cash = cash + loan.balance
@@ -72,11 +69,8 @@ def runSimulation(N,p,d):
                      
                     # compute how much principal has been paid
                     interestDue = (loan.balance * interestRate) / 12
-                    #print "interestDue: ", interestDue
                     principalPaid = thisPayment - interestDue 
-                    #print "principalPaid: ", principalPaid 
                     loan.balance = loan.balance - principalPaid
-                    #print "loan.balance: ", loan.balance 
 
                     # get rid of loans that are basically done
                     if loan.balance < 0.01:
