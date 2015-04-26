@@ -1,3 +1,6 @@
+# This file defines the simulation logic for inclusion
+# by the bokeh applet
+
 import numpy as np
 import random
 

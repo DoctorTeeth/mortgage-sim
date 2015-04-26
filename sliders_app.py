@@ -1,8 +1,5 @@
-"""
-This file demonstrates a bokeh applet, which can be viewed directly
-on a bokeh-server. See the README.md file in this directory for
-instructions on running.
-"""
+# This file defines the Bokeh applet
+# The simulation logic is in simulator.py
 
 from simulator import runSimulation
 import logging
@@ -18,7 +15,7 @@ from bokeh.models.widgets import HBox, Slider, TextInput, VBoxForm
 
 
 class SlidersApp(HBox):
-    """An example of a browser-based, interactive plot with slider controls."""
+    #An example of a browser-based, interactive plot with slider controls.
 
     extra_generated_classes = [["SlidersApp", "SlidersApp", "HBox"]]
 
@@ -132,10 +129,7 @@ class SlidersApp(HBox):
         self.source.data = runSimulation(N,p,d)
 
 
-# The following code adds a "/bokeh/sliders/" url to the bokeh-server. This
-# URL will render this sine wave sliders app. If you don't want to serve this
-# applet from a Bokeh server (for instance if you are embedding in a separate
-# Flask application), then just remove this block of code.
+# The following code adds a "/bokeh/sliders/" url to the bokeh-server. 
 @bokeh_app.route("/bokeh/sliders/")
 @object_page("sin")
 def make_sliders():

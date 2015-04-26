@@ -69,3 +69,6 @@ the first month.
 
 You can play around with the applet yourself to see what the graph 
 looks like in less extreme scenarios.
+
+If you want to examine the results of the simulator without 
+running bokeh-server, you can run the included harness.py.
